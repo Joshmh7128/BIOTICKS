@@ -31,7 +31,19 @@ public class PlayerCamera : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            selectedObject = null;
+            Deselect();
+        }
+    }
+
+    // deselect
+    void Deselect()
+    {
+        selectedObject = null;
+        selectedTile = null;
+        // make sure all tiles are no longer displayed moveable
+        foreach (TileClass tile in GridManager.instance.tiles)
+        {
+            // tile.moveable = false;
         }
     }
 }

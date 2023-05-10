@@ -29,7 +29,7 @@ public class PlayerUnit : UnitObject
 
         // if we are selected, engage icon
         if (selected)
-            engagedNotif.SetActive(true);
+            IsSelected();
     }
 
     // when the mouse is over the player
@@ -41,7 +41,6 @@ public class PlayerUnit : UnitObject
         // if the mouse is over and we left click, select this unit
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("calling");
             player.SetNewSelection(gameObject);
         }
     }
@@ -65,14 +64,20 @@ public class PlayerUnit : UnitObject
     // our function for being selected
     public void IsSelected()
     {
+        DisplayMovement();
         engagedNotif.SetActive(true);
         hoverNotif.SetActive(false);
-    }
 
+    }
+    
     // if we are engaged, show our movement
     public void DisplayMovement()
     {
         // go through the tiles and check the movement
-
+        foreach (TileClass tile in GridManager.instance.tiles)
+        {
+            if (Vector3.Distance(transform.position,  tile.transform.position) < moveRange * GridManager.instance.gridSpacing)
+            tile.moveable = true;
+        }
     }
 }

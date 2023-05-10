@@ -59,8 +59,9 @@ MonoBehaviour:
   heldGameObject: {fileID: 0}
   heldUnitObject: {fileID: 0}
   holdPoint: {fileID: 6467068412422484259}
+  moveable: 0
   hoverNotif: {fileID: 2487117204984579028}
-  selectNotif: {fileID: 2487117204984579028}
+  moveNotif: {fileID: 7764632100762179673}
   attackNotif: {fileID: 3893512992000506398}
 --- !u!65 &3244528060791659077
 BoxCollider:

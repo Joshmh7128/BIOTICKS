@@ -9,7 +9,9 @@ public class TileClass : MonoBehaviour
     public UnitObject heldUnitObject; // our held unit object
     public Transform holdPoint; // where is the unit held when we hold them?
 
-    [SerializeField] GameObject hoverNotif, selectNotif, attackNotif;
+    public bool moveable; // is this tile moveable? used by the player unit to mov
+
+    [SerializeField] GameObject hoverNotif, moveNotif, attackNotif;
 
     PlayerCamera cam;
 
@@ -45,5 +47,11 @@ public class TileClass : MonoBehaviour
     private void OnMouseExit()
     {
         hoverNotif.SetActive(false);
+    }
+
+    private void FixedUpdate()
+    {
+        // show if we are moveable or not
+        moveNotif.SetActive(moveable);
     }
 }

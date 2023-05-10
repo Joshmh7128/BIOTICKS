@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverNotif: {fileID: 1660226237815130415}
   engagedNotif: {fileID: 2853625887594241081}
+  moveRange: 2
 --- !u!136 &8365592604878169814
 CapsuleCollider:
   m_ObjectHideFlags: 0

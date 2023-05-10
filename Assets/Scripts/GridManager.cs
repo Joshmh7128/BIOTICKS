@@ -8,8 +8,8 @@ public class GridManager : MonoBehaviour
     [Header("Grid Settings")]
     [SerializeField] int gridSize; // the grid size on the X and Y
     [SerializeField] GameObject tilePrefab; // our tile prefab
-    [SerializeField] TileClass[,] tiles; // the array in which we will keep our tiles
-    [SerializeField] float gridSpacing; // how spaced out is the grid?
+    public TileClass[,] tiles; // the array in which we will keep our tiles
+    public float gridSpacing; // how spaced out is the grid?
 
     [Header("Unit Settings")]
     [SerializeField] int playerCount; 
@@ -34,7 +34,8 @@ public class GridManager : MonoBehaviour
         PlacePlayerUnits();
 
         // once players are placed, run all of the TileStart() functions
-
+        foreach (TileClass tile in tiles)
+            tile.TileStart();
     }
 
     // build our grid
